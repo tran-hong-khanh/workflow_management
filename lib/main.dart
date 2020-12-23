@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dropdownButton.dart';
-
+import 'categories.dart';
 void main() {
   runApp(MyApp());
 }
@@ -16,9 +16,11 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
     ),
       home: Scaffold(
-            body: SafeArea(
-              minimum: const EdgeInsets.only(left: 20, right: 20, top: 10, bottom: 10),
-              child: Dropdown()
+        body: SafeArea(
+          child: Center(
+            child: Categories()
+//            child: Dropdown(),
+          )
         )
       )
     );
