@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'listAction.dart';
 import 'total.dart';
+import 'categories.dart';
+import 'categoryDrawer.dart';
+
 class Dropdown extends StatefulWidget {
   Dropdown({Key key}) : super(key: key);
-
   @override
   _MyStatefulWidgetState createState() => _MyStatefulWidgetState();
 }
@@ -34,36 +36,67 @@ class _MyStatefulWidgetState extends State<Dropdown> {
           ),
         ],
       ),
-      drawer: Drawer(
-        // Add a ListView to the drawer. This ensures the user can scroll
-        // through the options in the drawer if there isn't enough vertical
-        // space to fit everything.
-        child: ListView(
+      drawer: Container(
+        width: 250,
+        child: Drawer(
+          child: ListView(
           // Important: Remove any padding from the ListView.
           padding: EdgeInsets.zero,
           children: <Widget>[
             DrawerHeader(
-              child: Text('Drawer Header'),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start, children: <Widget>[
+                Row(
+                mainAxisAlignment: MainAxisAlignment.start, children: <Widget>[
+                  IconButton(
+                    icon: const Icon(Icons.article, size: 70, color: Colors.white),
+                    tooltip: 'Show Snackbar',
+                  ),
+                  Padding(
+                    padding: EdgeInsets.symmetric(
+                      vertical: 0,
+                      horizontal: 25,
+                    ),
+                  ),
+                  Column(
+                      mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
+                    Padding(
+                      padding: EdgeInsets.symmetric(
+                        vertical: 15,
+                        horizontal: 0,
+                      ),
+                    ),
+                    Text('Categories', style: TextStyle(fontSize: 20, color: Colors.white)),
+                    Padding(
+                      padding: EdgeInsets.symmetric(
+                        vertical: 10,
+                        horizontal: 0,
+                      ),
+                    ),
+                    Container(
+                      height: 30,
+                      child: OutlineButton(
+                        child: Icon(Icons.add, size: 30, color: Colors.white),
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => Categories()),
+                          );
+                        },
+                          borderSide: BorderSide(color: Colors.white)
+                      ))
+                  ]),
+                ]
+                )
+              ]),
               decoration: BoxDecoration(
-                color: Colors.blue,
+                color: Colors.orange,
               ),
             ),
-            ListTile(
-              title: Text('Item 1'),
-              onTap: () {
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              title: Text('Item 2'),
-              onTap: () {
-                // Update the state of the app
-                // ...
-                // Then close the drawer
-                Navigator.pop(context);
-              },
-            ),
-          ],
+            CategoryDrawer(),
+            CategoryDrawer(),
+            ],
+          ),
         ),
       ),
       body: SafeArea(

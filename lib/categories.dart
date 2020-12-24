@@ -9,8 +9,6 @@ class Categories extends StatefulWidget {
 }
 
 class _CategoriesState extends State<Categories> {
-  // String _content = "";
-  // double _amount = 0;
   final _contentController = TextEditingController();
   final _amountController = TextEditingController();
   Category _category = Category(content: '', amount: 0.0);
@@ -29,6 +27,10 @@ class _CategoriesState extends State<Categories> {
           _category.createdDate = DateTime.now();
           _categories.add(_category);
           _category = Category(content: '', amount: 0.0);
+          setState(() {
+            _category.content = '';
+            _category.amount = 0.0;
+          });
           _contentController.text = '';
           _amountController.text = '';
         },
@@ -36,7 +38,7 @@ class _CategoriesState extends State<Categories> {
         backgroundColor: Colors.orange,
       ),
       appBar: AppBar(
-        title: Text("Quản lý bản ghi"),
+        title: Text("Thêm bản ghi"),
         backgroundColor: Colors.orange,
       ),
       body: SafeArea(
@@ -52,8 +54,6 @@ class _CategoriesState extends State<Categories> {
                       horizontal: 0,
                     ),
                   ),
-                  Text("Thêm danh mục: ",
-                      style: TextStyle(fontSize: 20, color: Colors.orange)),
                   TextField(
                       decoration: InputDecoration(labelText: "Tiêu đề:"),
                       controller: _contentController,
@@ -74,12 +74,16 @@ class _CategoriesState extends State<Categories> {
                       }),
                   Padding(
                     padding: EdgeInsets.symmetric(
-                      vertical: 16.0,
+                      vertical: 10.0,
                       horizontal: 0,
                     ),
                   ),
-                  Text("Tất cả danh mục: ",
-                      style: TextStyle(fontSize: 20, color: Colors.orange)),
+                  Padding(
+                    padding: EdgeInsets.symmetric(
+                      vertical: 5.0,
+                      horizontal: 0,
+                    ),
+                  ),
                   CategoriesList(categories: _categories)
                 ]),
           )),
