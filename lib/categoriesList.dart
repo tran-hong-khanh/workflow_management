@@ -55,7 +55,7 @@ class CategoriesList extends StatelessWidget {
                 children: <Widget>[
                 Container(
                   padding: const EdgeInsets.all(10.0),
-                  child: Text('${categories[index].amount}\$',
+                  child: Text('${categories[index].amount} Vnd',
                       style:
                           TextStyle(fontSize: 18, color: Colors.orange)),
                   decoration: BoxDecoration(
