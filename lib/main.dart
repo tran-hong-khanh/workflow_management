@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'dropdownButton.dart';
-import 'categories.dart';
+import 'screens/detail.dart';
+import 'screens/categories.dart';
 void main() {
   runApp(MyApp());
 }
@@ -26,26 +26,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-//class addButton extends StatelessWidget {
-//  @override
-//  Widget build(BuildContext context) {
-//    void _showModal() {
-//      showModalBottomSheet<void>(
-//        context: context,
-//        builder: (BuildContext context) {
-//          return Container(height: 200.0, child: Dropdown());
-//        },
-//      );
-//    }
-//    return Scaffold(
-//        floatingActionButton: FloatingActionButton(
-//          onPressed: () {
-//            _showModal();
-//          },
-//          child: Icon(Icons.add),
-//          backgroundColor: Colors.green,
-//        ),
-//        body: Text("hello")
-//    );
-//  }
-//}

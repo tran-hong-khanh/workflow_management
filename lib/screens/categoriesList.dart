@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:intl/intl.dart';
-import 'categoriesContent.dart';
-import 'dropdownButton.dart';
+import '../models/categoriesModel.dart';
+import 'detail.dart';
 
 class CategoriesList extends StatelessWidget {
   final List<Category> categories;
@@ -16,7 +16,7 @@ class CategoriesList extends StatelessWidget {
         onTap: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => Dropdown()),
+            MaterialPageRoute(builder: (context) => Detail()),
           );
         },
         child: Card(

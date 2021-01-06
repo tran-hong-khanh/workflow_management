@@ -4,13 +4,13 @@ import 'total.dart';
 import 'categories.dart';
 import 'categoryDrawer.dart';
 
-class Dropdown extends StatefulWidget {
-  Dropdown({Key key}) : super(key: key);
+class Detail extends StatefulWidget {
+  Detail({Key key}) : super(key: key);
   @override
   _MyStatefulWidgetState createState() => _MyStatefulWidgetState();
 }
 
-class _MyStatefulWidgetState extends State<Dropdown> {
+class _MyStatefulWidgetState extends State<Detail> {
   String dropdownValue = 'Chi';
   String _content = "";
   double _amount = 0;

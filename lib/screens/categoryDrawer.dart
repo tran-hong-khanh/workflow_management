@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'dropdownButton.dart';
+import 'detail.dart';
 import 'package:intl/intl.dart';
 
 class CategoryDrawer extends StatelessWidget {
@@ -12,7 +12,7 @@ class CategoryDrawer extends StatelessWidget {
         onTap: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => Dropdown()),
+            MaterialPageRoute(builder: (context) => Detail()),
           );
         },
         child: Card(
