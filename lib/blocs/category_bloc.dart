@@ -13,7 +13,7 @@ class CategoryBloc {
   //and broadcast it to observers/subscribers
   final _categoryController = StreamController<List<Category>>.broadcast();
 
-  get repositories => _categoryController.stream;
+  get categories => _categoryController.stream;
 
   CategoryBloc() {
     getTodos();

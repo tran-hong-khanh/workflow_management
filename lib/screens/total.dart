@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import '../models/categoriesModel.dart';
 
 class Total extends StatelessWidget {
+  Total( {Key key, this.category} ) : super(key: key);
+  double category;
   @override
   Widget build(BuildContext context) {
     return Column(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
@@ -14,7 +17,7 @@ class Total extends StatelessWidget {
         ),
         Expanded(
             child: Row(mainAxisAlignment: MainAxisAlignment.end, children: <Widget>[
-              Text("1.000.000.000", style: TextStyle(fontSize: 18, color: Colors.orange),),
+              Text(category.toString(), style: TextStyle(fontSize: 18, color: Colors.orange),),
               Padding(
                 padding: EdgeInsets.symmetric(
                   vertical: 0,

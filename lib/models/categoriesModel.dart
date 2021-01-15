@@ -4,7 +4,7 @@ class Category {
   int id;
   String content;
   double amount;
-  DateTime createdDate;
+  String createdDate;
   //constructor
   Category({this.id, this.content, this.amount, this.createdDate});
   @override

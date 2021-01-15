@@ -25,14 +25,14 @@ class DatabaseProvider {
     if (newVersion > oldVersion) {}
   }
   void initDB(Database database, int version) async {
-    await database.execute("CREATE TABLE $todoTABLE ("
+    await database.execute("CREATE TABLE $categoryTABLE ("
         "id INTEGER PRIMARY KEY, "
         "content TEXT, "
         "amount double, "
         /*SQLITE doesn't have boolean type
         so we store isDone as integer where 0 is false
         and 1 is true*/
-        "createdDate DateTime "
+        "createdDate TEXT "
         ")");
   }
 }

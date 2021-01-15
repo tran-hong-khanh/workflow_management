@@ -28,10 +28,11 @@ class CategoryDao {
       result = await db.query(categoryTABLE, columns: columns);
     }
 
-    List<Category> categoies = result.isNotEmpty
+    List<Category> categories = result.isNotEmpty
         ? result.map((item) => Category.fromDatabaseJson(item)).toList()
         : [];
-    return categoies;
+    print(categories);
+    return categories;
   }
 
   //Update Todo record
@@ -60,5 +61,22 @@ class CategoryDao {
     );
 
     return result;
+  }
+
+  Future<List<Category>> categories() async {
+    // Get a reference to the database.
+    final db = await dbProvider.database;
+//    final db = await database;
+    // Query the table for all The Dogs.
+    final List<Map<String, dynamic>> maps = await db.query(categoryTABLE);
+
+    // Convert the List<Map<String, dynamic> into a List<Dog>.
+    return List.generate(maps.length, (i){
+      return Category(
+        content: maps[i]['content'],
+        amount: maps[i]['amount'],
+        createdDate: maps[i]['createdDate'],
+      );
+    });
   }
 }
